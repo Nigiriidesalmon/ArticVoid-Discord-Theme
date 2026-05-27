@@ -1,0 +1,950 @@
+/**
+ * @name ArcticVoid
+ * @author Pau
+ * @version 1.0.0
+ * @description Minimalist dark theme — Obsidian meets Apple. Steel blue & cyan accent, Inter typography, zero noise.
+ * @source https://github.com
+*/
+
+/* ─────────────────────────────────────────────────────────
+   FONTS — Inter (clean UI sans-serif)
+───────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────────────────────── */
+:root {
+  /* Background scale — unified deep steel-blue / obsidian canvas */
+  --av-bg-0:        #0f1218;                    /* server list / deepest */
+  --av-bg-1:        #0f1218;                    /* primary — chat area  */
+  --av-bg-2:        #0f1218;                    /* secondary — sidebar  */
+  --av-bg-3:        #141820;                    /* elevated — inputs, cards */
+  --av-bg-4:        #191e28;                    /* floating — popovers  */
+  --av-bg-glass:    rgba(15, 18, 24, 0.80);     /* modal glassmorphism  */
+
+  /* Cyan / steel-blue accent */
+  --av-accent:      #4eb8d6;
+  --av-accent-hi:   #72cde5;
+  --av-accent-lo:   #3a98b4;
+  --av-accent-dim:  rgba(78, 184, 214, 0.11);
+  --av-accent-glow: rgba(78, 184, 214, 0.22);
+
+  /* Text scale */
+  --av-text-1: #dde5ef;   /* primary       */
+  --av-text-2: #8a9bb5;   /* muted         */
+  --av-text-3: #56697f;   /* dim (labels)  */
+
+  /* Borders */
+  --av-border:        rgba(255, 255, 255, 0.055);
+  --av-border-accent: rgba(78, 184, 214, 0.28);
+
+  /* Shape */
+  --av-radius-sm: 5px;
+  --av-radius:    8px;
+  --av-radius-lg: 12px;
+
+  /* Motion */
+  --av-t: 150ms ease;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────────────────────── */
+:root, .theme-dark, .theme-midnight {
+  --font-primary: "Inter", sans-serif, "Noto Color Emoji";
+  --font-display: "Inter", sans-serif, "Noto Color Emoji";
+  --font-code:    "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────────────────
+   DISCORD CSS VARIABLE OVERRIDES
+───────────────────────────────────────────────────────── */
+:root, .theme-dark, .theme-midnight {
+
+  /* ── Backgrounds ─────────────────────────────────────── */
+  --background-primary:           var(--av-bg-1);
+  --background-secondary:         var(--av-bg-2);
+  --background-secondary-alt:     var(--av-bg-0);
+  --background-tertiary:          var(--av-bg-0);
+  --background-accent:            var(--av-bg-3);
+  --background-floating:          var(--av-bg-4);
+  --background-nested-floating:   var(--av-bg-4);
+  --modal-background:             var(--av-bg-glass);
+  --modal-footer-background:      var(--av-bg-2);
+
+  /* NewUI bg tokens */
+  --bg-overlay-1:  var(--av-bg-1);
+  --bg-overlay-2:  var(--av-bg-2);
+  --bg-overlay-3:  var(--av-bg-3);
+  --bg-overlay-4:  var(--av-bg-4);
+  --bg-overlay-5:  var(--av-bg-4);
+  --bg-overlay-6:  var(--av-bg-0);
+
+  /* ── Modifier overlays ───────────────────────────────── */
+  --background-modifier-hover:    rgba(255, 255, 255, 0.04);
+  --background-modifier-active:   rgba(255, 255, 255, 0.07);
+  --background-modifier-selected: var(--av-accent-dim);
+  --background-modifier-accent:   rgba(255, 255, 255, 0.055);
+
+  /* ── Message highlights ──────────────────────────────── */
+  --background-mentioned:         transparent !important;
+  --background-mentioned-hover:   transparent !important;
+  --background-message-hover:     rgba(255, 255, 255, 0.018);
+
+  /* ── Text ────────────────────────────────────────────── */
+  --text-normal:    var(--av-text-1);
+  --text-muted:     var(--av-text-2);
+  --text-link:      var(--av-accent);
+  --text-positive:  #4eca82;
+  --text-warning:   #e5a438;
+  --text-danger:    #e05a5a;
+  --text-brand:     var(--av-accent);
+  --text-default:   var(--av-text-1);
+  --text-secondary: var(--av-text-2);
+
+  /* ── Headers ─────────────────────────────────────────── */
+  --header-primary:   var(--av-text-1);   /* same as --text-normal */
+  --header-secondary: var(--av-text-2);  /* same tone as interactive/channels */
+  --header-muted:     var(--av-text-2);
+
+  /* ── Interactive states ──────────────────────────────── */
+  --interactive-normal:  #8a9bb5;
+  --interactive-hover:   var(--av-text-1);
+  --interactive-active:  var(--av-text-1);
+  --interactive-muted:   var(--av-text-3);
+  --channels-default:    #8a9bb5;
+
+  /* ── Brand / accent ──────────────────────────────────── */
+  --brand-experiment:       var(--av-accent);
+  --brand-experiment-330:   var(--av-accent-hi);
+  --brand-experiment-360:   var(--av-accent-hi);
+  --brand-experiment-400:   var(--av-accent);
+  --brand-experiment-430:   var(--av-accent);
+  --brand-experiment-460:   var(--av-accent-lo);
+  --brand-experiment-530:   #2e8ba8;
+  --brand-experiment-560:   #227490;
+  --brand-experiment-600:   #175d78;
+  --brand-500:              var(--av-accent);
+  --brand-360:              var(--av-accent-hi);
+  --background-brand:       var(--av-accent);
+  --control-brand-foreground: var(--av-accent);
+  --text-brand:             var(--av-accent);
+  --info-help-foreground:   var(--av-accent);
+
+  /* ── Inputs ──────────────────────────────────────────── */
+  --channeltextarea-background: var(--av-bg-3);
+  --input-background:           var(--av-bg-3);
+  --deprecated-card-bg:         var(--av-bg-2);
+  --deprecated-store-bg:        var(--av-bg-2);
+  --input-border-default:       var(--av-border);
+  --input-border-hover:         rgba(255, 255, 255, 0.09);
+  --input-border-active:        var(--av-border-accent);
+
+  /* ── Borders ─────────────────────────────────────────── */
+  --border-faint:  rgba(255, 255, 255, 0.04);
+  --border-subtle: var(--av-border);
+  --border-normal: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-active: var(--av-border-accent);
+
+  /* ── Mentions ────────────────────────────────────────── */
+  --mention-foreground:  var(--av-accent);
+  --mention-background:  var(--av-accent-dim);
+
+  /* ── Spoilers ────────────────────────────────────────── */
+  --spoiler-hidden-background:       var(--av-bg-3);
+  --spoiler-hidden-background-hover: var(--av-bg-4);
+
+  /* ── Scrollbars ──────────────────────────────────────── */
+  --scrollbar-thin-track:                      transparent;
+  --scrollbar-thin-thumb:                      rgba(78, 184, 214, 0.18);
+  --scrollbar-auto-track:                      transparent;
+  --scrollbar-auto-thumb:                      rgba(78, 184, 214, 0.18);
+  --scrollbar-auto-scrollbar-color-track:      transparent;
+  --scrollbar-auto-scrollbar-color-thumb:      rgba(78, 184, 214, 0.18);
+
+  /* ── Elevation (shadows) ─────────────────────────────── */
+  --elevation-low:    0 2px 8px  rgba(0, 0, 0, 0.35);
+  --elevation-medium: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --elevation-high:   0 16px 48px rgba(0, 0, 0, 0.55);
+
+  /* ── Focus ring ──────────────────────────────────────── */
+  --focus-primary: var(--av-accent);
+
+  /* ── Badges ──────────────────────────────────────────── */
+  --badge-background-brand: var(--av-accent);
+
+  /* ── Checkboxes / radios ─────────────────────────────── */
+  --checkbox-background-selected-default: var(--av-accent);
+  --checkbox-background-selected-hover:   var(--av-accent-hi);
+  --radio-background-selected-default:    var(--av-accent);
+
+  /* ── Progress bars ───────────────────────────────────── */
+  --progressbar-indicator-background: var(--av-accent);
+
+  /* ── Badge/pill backgrounds (BOT, APP) ──────────────── */
+  --bg-brand: transparent !important;
+  --profile-body-background-color: var(--av-bg-4);
+  --badge-brand-bg: transparent !important;
+  --theme-bot-tag-background: transparent !important;
+  --theme-bot-tag-color: var(--av-accent) !important;
+  --bot-tag-bg: transparent !important;
+  --bot-tag-background: transparent !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SCROLLBARS (webkit)
+───────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
+  background: rgba(78, 184, 214, 0.16);
+  border-radius: 4px;
+  transition: background var(--av-t);
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(78, 184, 214, 0.32); }
+
+/* ─────────────────────────────────────────────────────────
+   SERVER LIST (guilds)
+───────────────────────────────────────────────────────── */
+/* Server list background — total override for unified canvas */
+[class*="guilds_"],
+nav[class*="guilds"],
+[class*="guilds_"] [class*="scroller_"],
+nav[class*="guilds"] [class*="scroller_"],
+.guilds_a4d4d9,
+.guilds_a4d4d9 [class*="scroller_"] {
+  background-color: var(--av-bg-0) !important;
+}
+
+/* Active server pill */
+[class*="pill_"] span,
+[class*="listItem_"] [class*="item_"]:not([class*="unavailable"]) [class*="pill_"] span {
+  background-color: var(--av-accent) !important;
+}
+
+/* Guild folder icon */
+[class*="expandedFolderBackground_"] {
+  background-color: var(--av-accent-dim) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CHANNEL SIDEBAR
+───────────────────────────────────────────────────────── */
+/* Sidebar base */
+[class*="sidebar_"] {
+  background-color: var(--av-bg-2) !important;
+}
+
+/* Server name header */
+[class*="header_"][class*="container_"] {
+  background-color: var(--av-bg-2) !important;
+  border-bottom: 1px solid var(--av-border) !important;
+  box-shadow: none !important;
+}
+
+/* Selected channel & hover states — completely transparent background (standalone selectors to prevent compiler discard) */
+[class*="selected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="selected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="selected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="modeSelected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="modeSelected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="modeSelected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="modeSelected_"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="selected_"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="link_"][class*="channel"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="link_"][class*="channel"]:active { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="link_"][class*="channel"][class*="modeSelected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="link_"][class*="channel"][class*="selected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="wrapper_"][class*="modeSelected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="wrapper_"][class*="selected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="wrapper_"][class*="modeSelected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="wrapper_"][class*="selected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="sidebar_"] [class*="selected_"] * { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+[class*="sidebar_"] [class*="modeSelected_"] * { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+
+/* Selected channel text color (cyan) */
+[class*="modeSelected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
+[class*="selected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
+[class*="link_"][class*="channel"][class*="modeSelected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
+[class*="link_"][class*="channel"][class*="selected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
+
+/* Channel hover text color (white) */
+[class*="link_"][class*="channel"]:hover [class*="name_"] {
+  color: var(--av-text-1) !important;
+}
+
+/* Channel categories */
+[class*="containerDefault_"] [class*="categoryName_"],
+[class*="category_"] [class*="name_"] {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  color: var(--av-text-2) !important;
+  text-transform: uppercase !important;
+}
+
+/* ── Scoped variable override: sidebar category headers ─── */
+[class*="sidebar_"] {
+  --header-primary: var(--av-text-2);
+  --interactive-muted: var(--av-text-3);
+  --channels-default: var(--av-text-2);
+  --header-secondary: var(--av-text-2);
+}
+
+/* ── Scoped variable override: member list headers ─── */
+[class*="members_"],
+[class*="membersWrap_"],
+[class*="membersGroup"] {
+  --header-primary: var(--av-text-2);
+  --header-secondary: var(--av-text-2);
+  --channels-default: var(--av-text-2);
+}
+
+/* Member list — role/group headers — nuclear selector list */
+[class*="membersGroup"],
+[class*="groupHeader"],
+[class*="roleHeader"],
+[class*="listSectionHeader"],
+[class*="members"] h3,
+[class*="members"] h2,
+[class*="members"] [role="heading"],
+[class*="membersWrap_"] [class*="title_"],
+[class*="membersWrap_"] h3 {
+  color: var(--av-text-2) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+}
+
+/* Channel names */
+[class*="name_"][class*="channel"] {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CHAT AREA
+───────────────────────────────────────────────────────── */
+/* Channel header */
+[class*="chat_"] [class*="header_"] {
+  background-color: var(--av-bg-1) !important;
+  border-bottom: 1px solid var(--av-border) !important;
+  box-shadow: none !important;
+}
+
+/* Message list, chat content, and voice call canvas uniformity */
+[class*="chatContent_"],
+[class*="scroller_"][class*="message"],
+[class*="chat_"] [class*="content_"],
+[class*="callContainer_"],
+[class*="wrapper_"][class*="minimumSize_"],
+[class*="root_"][class*="callContainer"] {
+  background-color: var(--av-bg-1) !important;
+}
+
+/* Individual messages — flat, completely transparent background by default */
+[class*="message_"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-radius: var(--av-radius-sm) !important;
+  transition: background-color var(--av-t) !important;
+}
+[class*="message_"]:hover {
+  background-color: var(--background-message-hover) !important;
+}
+
+/* Timestamps */
+[class*="timestamp_"] {
+  color: var(--av-text-3) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+}
+
+/* Username / author — NUCLEAR: override ALL inline role colors and variables */
+[class*="username"],
+[class*="author"],
+[class*="headerText"] [class*="name"],
+[class*="roleColor"],
+[class*="roleName"],
+[class*="member"] [class*="name"],
+[class*="member"] [class*="username"],
+[class*="memberInner"] [class*="name"],
+[class*="message"] [class*="username"],
+[class*="headerText"] span,
+[style*="--role-color"] {
+  color: var(--av-text-1) !important;
+  --role-color: var(--av-text-1) !important;
+  --username-color: var(--av-text-1) !important;
+  --role-color-hover: var(--av-accent) !important;
+  font-weight: 500 !important;
+}
+
+/* Kill ALL inline style colors inside messages and member list */
+[class*="message"] [style*="color"],
+[class*="header"] [class*="username"][style],
+[class*="member"] [style*="color"],
+[class*="membersWrap"] [style*="color"],
+[class*="username"][style*="color"],
+[class*="name"][style*="color"],
+[class*="nameTag"][style*="color"],
+[class*="headerText"] span[style],
+[class*="membersGroup"] [style*="color"] {
+  color: var(--av-text-1) !important;
+  --role-color: var(--av-text-1) !important;
+  --username-color: var(--av-text-1) !important;
+}
+
+/* Channel title in header */
+[class*="chat"] [class*="title"],
+[class*="chat"] [class*="channelName"] {
+  color: var(--av-text-1) !important;
+  font-weight: 600 !important;
+}
+
+/* Profile popout / modal username */
+[class*="userPopout"] [class*="username"],
+[class*="userPopout"] [class*="nickname"],
+[class*="userPopout"] [class*="headerTag"],
+[class*="userProfile"] [class*="username"],
+[class*="userProfile"] [class*="title"],
+[class*="profilePanel"] [class*="username"],
+[class*="popout"] [class*="username"],
+[class*="popout"] [class*="headerText"] {
+  color: var(--av-text-1) !important;
+}
+
+/* Dividers (date separators) */
+[class*="divider_"] {
+  border-color: var(--av-border) !important;
+}
+[class*="divider_"] [class*="content_"] {
+  background-color: var(--av-bg-1) !important;
+  color: var(--av-text-3) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MESSAGE INPUT
+───────────────────────────────────────────────────────── */
+[class*="channelTextArea_"] {
+  background-color: var(--av-bg-3) !important;
+  border-radius: var(--av-radius-lg) !important;
+  border: 1px solid var(--av-border) !important;
+  transition: border-color var(--av-t), box-shadow var(--av-t) !important;
+  margin-bottom: 2px !important;
+}
+[class*="channelTextArea_"]:focus-within {
+  border-color: var(--av-border-accent) !important;
+  box-shadow: 0 0 0 1px var(--av-border-accent),
+              inset 0 0 20px rgba(78, 184, 214, 0.03) !important;
+}
+[class*="textArea_"] {
+  background: transparent !important;
+}
+
+/* Input toolbar icons */
+[class*="buttons_"][class*="channelTextArea"] [class*="button_"] {
+  color: var(--av-text-2) !important;
+  transition: color var(--av-t) !important;
+}
+[class*="buttons_"][class*="channelTextArea"] [class*="button_"]:hover {
+  color: var(--av-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BOTTOM USER PANEL
+───────────────────────────────────────────────────────── */
+[class*="panels_"],
+[class*="panels_"] > div,
+[class*="panel_"][class*="account"] {
+  background-color: var(--av-bg-0) !important;
+  background: var(--av-bg-0) !important;
+  border-top: 1px solid var(--av-border) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MEMBER LIST (right panel) — transparent members & activity cards
+───────────────────────────────────────────────────────── */
+[class*="members_"][class*="container"],
+[class*="membersWrap_"] {
+  background-color: var(--av-bg-2) !important;
+  border-left: 1px solid var(--av-border) !important;
+}
+
+/* Force all member cards, hovered states, rich activities, and Active Now cards to be transparent (standalone selectors) */
+[class*="members_"] [class*="member_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="layout_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="memberInner_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="member_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="layout_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="memberInner_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="content_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="content_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="activity_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="card_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="activity_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="card_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="container_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="container_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="activityItem_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="membersWrap_"] [class*="interactiveCard_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="activityItem_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+[class*="members_"] [class*="interactiveCard_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+
+/* Hover and selection text color transition for members */
+[class*="member_"]:hover [class*="name_"],
+[class*="member_"][class*="selected_"] [class*="name_"],
+[class*="member_"]:hover [class*="username"],
+[class*="member_"][class*="selected_"] [class*="username"] {
+  color: var(--av-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BOT / APP / CUSTOM BADGES — total nuke
+───────────────────────────────────────────────────────── */
+/* Target every possible badge and tag variant for total transparency */
+[class*="botTag_"],
+[class*="botTagRegular_"],
+[class*="botTagCozy_"],
+[class*="botTagInvert_"],
+[class*="botTagContainer_"],
+[class*="appTag_"],
+[class*="tag_"]:not([class*="numberBadge_"]),
+[class*="tagText_"],
+[class*="botText_"],
+[class*="tagText"],
+[class*="botTag"],
+[class*="botTag"] *,
+[class*="appTag"],
+[class*="appTag"] *,
+[class*="pill_"][class*="bot_"],
+[class*="profileBadges_"] [class*="badge_"],
+[class*="badgeList_"] [class*="badge_"],
+[class*="badgeContainer_"],
+[class*="badge_"]:not([class*="numberBadge_"]),
+[class*="rem_"] [class*="botTag_"],
+[class*="rem_"] [class*="botTag_"] * {
+  background-color: transparent !important;
+  background: none !important;
+  color: var(--av-accent) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+[class*="botTag"] svg,
+[class*="botTag"] svg path,
+[class*="appTag"] svg,
+[class*="appTag"] svg path,
+[class*="badge_"] svg,
+[class*="badge_"] svg path {
+  color: var(--av-accent) !important;
+  fill: var(--av-accent) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   VOICE PANEL — bottom control area
+───────────────────────────────────────────────────────── */
+/* "Voz conectada" panel background */
+[class*="connection_"],
+[class*="voicePanel_"],
+[class*="rtcConnectionStatus_"],
+[class*="connection_"] > div,
+[class*="voicePanel_"] > div {
+  background-color: var(--av-bg-0) !important;
+  background: var(--av-bg-0) !important;
+  border-top: 1px solid var(--av-border) !important;
+}
+
+/* Connection status text ("Voz conectada") */
+[class*="connection_"] [class*="title_"],
+[class*="rtcConnectionStatus_"] [class*="text_"] {
+  color: var(--av-text-2) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+/* Voice action buttons (disconnect, video, share, krisp...) */
+[class*="connection_"] [class*="button_"],
+[class*="voicePanel_"] [class*="button_"],
+[class*="actionButtons_"] [class*="button_"] {
+  background-color: var(--av-bg-3) !important;
+  color: var(--av-text-2) !important;
+  border-radius: var(--av-radius-sm) !important;
+  transition: background-color var(--av-t), color var(--av-t) !important;
+}
+[class*="connection_"] [class*="button_"]:hover,
+[class*="voicePanel_"] [class*="button_"]:hover,
+[class*="actionButtons_"] [class*="button_"]:hover {
+  background-color: var(--av-bg-4) !important;
+  color: var(--av-text-1) !important;
+}
+
+/* Disconnect button stays red */
+[class*="button_"][class*="disconnect_"],
+[class*="hangup_"],
+[class*="endCall_"] {
+  background-color: rgba(224, 90, 90, 0.15) !important;
+  color: #e05a5a !important;
+}
+[class*="button_"][class*="disconnect_"]:hover,
+[class*="hangup_"]:hover,
+[class*="endCall_"]:hover {
+  background-color: rgba(224, 90, 90, 0.3) !important;
+  color: #ff6b6b !important;
+}
+
+/* Krisp noise cancellation button */
+[class*="krisp_"],
+[class*="noiseCancellation_"] {
+  color: var(--av-text-2) !important;
+}
+[class*="krisp_"]:hover,
+[class*="noiseCancellation_"]:hover {
+  color: var(--av-accent) !important;
+}
+
+/* Bottom user panel mic/deafen/settings buttons — force transparent background by default */
+[class*="panels_"] [class*="button_"],
+[class*="panels_"] button,
+[class*="panels_"] [class*="actionButtons_"] button {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Icons inside the bottom panel buttons */
+[class*="panels_"] [class*="button_"] svg,
+[class*="panels_"] button svg,
+[class*="panels_"] [class*="actionButtons_"] button svg,
+[class*="panels_"] [class*="button_"] path,
+[class*="panels_"] button path,
+[class*="panels_"] [class*="actionButtons_"] button path {
+  color: var(--av-text-2) !important;
+  fill: currentColor !important;
+}
+
+/* Hover styles for the buttons */
+[class*="panels_"] [class*="button_"]:hover,
+[class*="panels_"] button:hover,
+[class*="panels_"] [class*="actionButtons_"] button:hover {
+  background-color: var(--av-bg-3) !important;
+}
+
+/* Hover styles for the icons */
+[class*="panels_"] [class*="button_"]:hover svg,
+[class*="panels_"] button:hover svg,
+[class*="panels_"] [class*="actionButtons_"] button:hover svg,
+[class*="panels_"] [class*="button_"]:hover path,
+[class*="panels_"] button:hover path,
+[class*="panels_"] [class*="actionButtons_"] button:hover path {
+  color: var(--av-accent) !important;
+  fill: currentColor !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────────────────── */
+/* Primary / brand buttons */
+[class*="colorBrand_"],
+[class*="lookFilled_"][class*="colorBrand_"] {
+  background-color: var(--av-accent) !important;
+  color: #0b0d10 !important;
+  font-weight: 600 !important;
+  border-radius: var(--av-radius) !important;
+  transition: background-color var(--av-t), transform var(--av-t), box-shadow var(--av-t) !important;
+}
+[class*="colorBrand_"]:hover,
+[class*="lookFilled_"][class*="colorBrand_"]:hover {
+  background-color: var(--av-accent-hi) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px var(--av-accent-glow) !important;
+}
+
+/* Outlined buttons */
+[class*="lookOutlined_"] {
+  border-color: var(--av-border) !important;
+  border-radius: var(--av-radius) !important;
+  transition: border-color var(--av-t), background-color var(--av-t) !important;
+}
+[class*="lookOutlined_"]:hover {
+  border-color: var(--av-border-accent) !important;
+  background-color: var(--av-accent-dim) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODALS — Glassmorphism
+───────────────────────────────────────────────────────── */
+[class*="root_"][class*="modal"],
+[class*="modal"][class*="root_"] {
+  background: var(--av-bg-glass) !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.5) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius-lg) !important;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(78, 184, 214, 0.07) !important;
+}
+
+[class*="header_"][class*="modal"] {
+  background: transparent !important;
+  border-bottom: 1px solid var(--av-border) !important;
+}
+
+[class*="footer_"][class*="modal"] {
+  background: rgba(20, 23, 30, 0.6) !important;
+  border-top: 1px solid var(--av-border) !important;
+  border-radius: 0 0 var(--av-radius-lg) var(--av-radius-lg) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CONTEXT MENUS & POPOUTS
+───────────────────────────────────────────────────────── */
+[class*="menu_"],
+[class*="popout_"]:not([class*="layer_"]) {
+  background-color: var(--av-bg-4) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius-lg) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55) !important;
+  padding: 4px !important;
+}
+
+[class*="item_"][class*="menu"] {
+  border-radius: var(--av-radius-sm) !important;
+  transition: background-color var(--av-t) !important;
+  font-size: 14px !important;
+}
+
+/* Danger menu item */
+[class*="colorDanger_"][class*="item_"] {
+  color: #e05a5a !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TOOLTIPS
+───────────────────────────────────────────────────────── */
+[class*="tooltip_"] {
+  background-color: var(--av-bg-4) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius-sm) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BADGES & MENTIONS
+───────────────────────────────────────────────────────── */
+[class*="numberBadge_"] {
+  background-color: var(--av-accent) !important;
+  color: #0b0d10 !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+}
+
+/* @mention highlight inside the text block */
+[class*="mention"] {
+  background-color: var(--av-accent-dim) !important;
+  color: var(--av-accent) !important;
+  border-radius: 3px !important;
+  font-weight: 500 !important;
+  transition: background-color var(--av-t) !important;
+}
+[class*="mention"]:hover {
+  background-color: rgba(78, 184, 214, 0.22) !important;
+}
+
+/* Message block mention highlight (when you get pinged) — elegant soft cyan background & vertical bar */
+[class*="message_"][class*="mentioned_"],
+[class*="message_"][class*="mentioned_"]:hover,
+[class*="mentioned_"] {
+  background-color: var(--av-accent-dim) !important;
+  background: var(--av-accent-dim) !important;
+}
+[class*="message_"][class*="mentioned_"]::before {
+  background-color: var(--av-accent) !important;
+  content: "" !important;
+  width: 2px !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   INLINE CODE & CODE BLOCKS
+───────────────────────────────────────────────────────── */
+/* Inline code */
+code:not([class]) {
+  background-color: var(--av-bg-3) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius-sm) !important;
+  padding: 1px 5px !important;
+  font-size: 13px !important;
+  font-family: var(--font-code) !important;
+  color: var(--av-accent-hi) !important;
+}
+
+/* Code block container */
+[class*="codeContainer_"],
+[class*="markup_"] pre {
+  background-color: var(--av-bg-0) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius) !important;
+}
+
+/* Code block language label */
+[class*="scrollBarSpacer_"] + [class*="container_"],
+[class*="lang_"] {
+  background: transparent !important;
+  color: var(--av-text-3) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TYPOGRAPHY — Message content
+───────────────────────────────────────────────────────── */
+/* Main message text */
+[class*="markup_"] {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+}
+
+/* Markdown headings */
+[class*="markup_"] h1,
+[class*="markup_"] h2,
+[class*="markup_"] h3 {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--av-text-1) !important;
+  margin-bottom: 4px !important;
+}
+
+/* Bold */
+[class*="markup_"] strong {
+  font-weight: 600 !important;
+  color: var(--av-text-1) !important;
+}
+
+/* Placeholder text */
+[class*="textArea_"] [data-slate-placeholder],
+[class*="placeholder_"] {
+  color: var(--av-text-3) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* Server name header title */
+[class*="titleWrapper_"] h1,
+[class*="title_"][class*="header_"] {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--av-text-1) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MICRO-ANIMATIONS
+───────────────────────────────────────────────────────── */
+/* Toolbar / icon buttons */
+[class*="iconWrapper_"],
+[class*="button_"][class*="icon"],
+[class*="interactive_"] svg {
+  transition: color var(--av-t), opacity var(--av-t), transform var(--av-t) !important;
+}
+
+[class*="interactive_"]:hover svg,
+[class*="button_"]:hover [class*="icon"] {
+  color: var(--av-accent) !important;
+}
+
+/* Avatar scale on hover */
+[class*="avatar_"]:not([class*="mask"]) {
+  transition: transform var(--av-t) !important;
+}
+[class*="avatar_"]:not([class*="mask"]):hover {
+  transform: scale(1.06) !important;
+}
+
+/* Selected / active channel animation */
+[class*="modeSelected_"] {
+  transition: background-color var(--av-t) !important;
+}
+
+/* Switch toggles */
+[class*="slider_"] {
+  transition: background-color var(--av-t) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MISC POLISH
+───────────────────────────────────────────────────────── */
+/* Remove default card elevations — completely transparent cards */
+[class*="card_"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: var(--av-radius) !important;
+  box-shadow: none !important;
+}
+
+/* Search bar */
+[class*="searchBar_"] {
+  background-color: var(--av-bg-0) !important;
+  border-radius: var(--av-radius-sm) !important;
+  border: 1px solid var(--av-border) !important;
+}
+
+/* Unread bar */
+[class*="newMessagesBar_"] {
+  background-color: var(--av-accent) !important;
+  color: #0b0d10 !important;
+  font-weight: 600 !important;
+  border-radius: var(--av-radius) !important;
+}
+
+/* Reaction bubbles */
+[class*="reaction_"] {
+  background-color: var(--av-bg-3) !important;
+  border: 1px solid var(--av-border) !important;
+  border-radius: 100px !important;
+  transition: background-color var(--av-t), border-color var(--av-t) !important;
+}
+[class*="reaction_"]:hover,
+[class*="reaction_"][class*="reacted_"] {
+  background-color: var(--av-accent-dim) !important;
+  border-color: var(--av-border-accent) !important;
+}
+[class*="reaction_"][class*="reacted_"] [class*="count_"] {
+  color: var(--av-accent) !important;
+}
+
+/* Embed left accent bar */
+[class*="embedFull_"] {
+  border-left-color: var(--av-accent) !important;
+  background-color: var(--av-bg-2) !important;
+  border-radius: 0 var(--av-radius-sm) var(--av-radius-sm) 0 !important;
+}
+
+/* Spoiler */
+[class*="spoilerText_"][class*="hidden_"] {
+  background-color: var(--av-bg-3) !important;
+  border-radius: 3px !important;
+}
