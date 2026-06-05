@@ -1,60 +1,72 @@
 /**
  * @name ArcticVoid
- * @author Pau
+ * @author Nigiriidesalmon
  * @version 1.0.0
- * @description Minimalist dark theme — Obsidian meets Apple. Steel blue & cyan accent, Inter typography, zero noise.
- * @source https://github.com
-*/
+ * @description Minimalist dark Discord theme. Obsidian-inspired surfaces, steel gray text, cyan accents and Inter typography.
+ * @source https://github.com/Nigiriidesalmon/ArticVoid-Discord-Theme
+ * @website https://github.com/Nigiriidesalmon/ArticVoid-Discord-Theme
+ */
 
-/* ─────────────────────────────────────────────────────────
-   FONTS — Inter (clean UI sans-serif)
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   FONTS - Inter (clean UI sans-serif)
+--------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    DESIGN TOKENS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 :root {
-  /* Background scale — unified deep steel-blue / obsidian canvas */
-  --av-bg-0:        #0f1218;                    /* server list / deepest */
-  --av-bg-1:        #0f1218;                    /* primary — chat area  */
-  --av-bg-2:        #0f1218;                    /* secondary — sidebar  */
-  --av-bg-3:        #141820;                    /* elevated — inputs, cards */
-  --av-bg-4:        #191e28;                    /* floating — popovers  */
-  --av-bg-glass:    rgba(15, 18, 24, 0.80);     /* modal glassmorphism  */
+  /* Background scale - unified deep steel-blue / obsidian canvas */
+  --av-bg-0: #0b0e13;
+  /* server list / deepest */
+  --av-bg-1: #0e1218;
+  /* primary - chat area  */
+  --av-bg-2: #111720;
+  /* secondary - sidebar  */
+  --av-bg-3: #151c26;
+  /* elevated - inputs, cards */
+  --av-bg-4: #1b2430;
+  /* floating - popovers  */
+  --av-bg-glass: rgba(14, 18, 24, 0.84);
+  /* modal glassmorphism  */
 
   /* Cyan / steel-blue accent */
-  --av-accent:      #4eb8d6;
-  --av-accent-hi:   #72cde5;
-  --av-accent-lo:   #3a98b4;
-  --av-accent-dim:  rgba(78, 184, 214, 0.11);
-  --av-accent-glow: rgba(78, 184, 214, 0.22);
+  --av-accent: #4eb8d6;
+  --av-accent-hi: #72cde5;
+  --av-accent-lo: #3a98b4;
+  --av-accent-dim: rgba(78, 184, 214, 0.095);
+  --av-accent-glow: rgba(78, 184, 214, 0.18);
 
   /* Text scale */
-  --av-text-1: #dde5ef;   /* primary       */
-  --av-text-2: #8a9bb5;   /* muted         */
-  --av-text-3: #56697f;   /* dim (labels)  */
+  --av-text-1: #dde5ef;
+  /* primary       */
+  --av-text-2: #93a4bb;
+  /* muted         */
+  --av-text-3: #65758a;
+  /* dim (labels)  */
 
   /* Borders */
-  --av-border:        rgba(255, 255, 255, 0.055);
-  --av-border-accent: rgba(78, 184, 214, 0.28);
+  --av-border: rgba(255, 255, 255, 0.065);
+  --av-border-accent: rgba(78, 184, 214, 0.34);
 
   /* Shape */
   --av-radius-sm: 5px;
-  --av-radius:    8px;
+  --av-radius: 8px;
   --av-radius-lg: 12px;
 
   /* Motion */
   --av-t: 150ms ease;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    TYPOGRAPHY
-───────────────────────────────────────────────────────── */
-:root, .theme-dark, .theme-midnight {
+--------------------------------------------------------- */
+:root,
+.theme-dark,
+.theme-midnight {
   --font-primary: "Inter", sans-serif, "Noto Color Emoji";
   --font-display: "Inter", sans-serif, "Noto Color Emoji";
-  --font-code:    "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  --font-code: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
 }
 
 * {
@@ -62,133 +74,138 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    DISCORD CSS VARIABLE OVERRIDES
-───────────────────────────────────────────────────────── */
-:root, .theme-dark, .theme-midnight {
+--------------------------------------------------------- */
+:root,
+.theme-dark,
+.theme-midnight {
 
-  /* ── Backgrounds ─────────────────────────────────────── */
-  --background-primary:           var(--av-bg-1);
-  --background-secondary:         var(--av-bg-2);
-  --background-secondary-alt:     var(--av-bg-0);
-  --background-tertiary:          var(--av-bg-0);
-  --background-accent:            var(--av-bg-3);
-  --background-floating:          var(--av-bg-4);
-  --background-nested-floating:   var(--av-bg-4);
-  --modal-background:             var(--av-bg-glass);
-  --modal-footer-background:      var(--av-bg-2);
+  /* -- Backgrounds --------------------------------------- */
+  --background-primary: var(--av-bg-1);
+  --background-secondary: var(--av-bg-2);
+  --background-secondary-alt: var(--av-bg-0);
+  --background-tertiary: var(--av-bg-0);
+  --background-accent: var(--av-bg-3);
+  --background-floating: var(--av-bg-4);
+  --background-nested-floating: var(--av-bg-4);
+  --modal-background: var(--av-bg-glass);
+  --modal-footer-background: var(--av-bg-2);
 
   /* NewUI bg tokens */
-  --bg-overlay-1:  var(--av-bg-1);
-  --bg-overlay-2:  var(--av-bg-2);
-  --bg-overlay-3:  var(--av-bg-3);
-  --bg-overlay-4:  var(--av-bg-4);
-  --bg-overlay-5:  var(--av-bg-4);
-  --bg-overlay-6:  var(--av-bg-0);
+  --bg-overlay-1: var(--av-bg-1);
+  --bg-overlay-2: var(--av-bg-2);
+  --bg-overlay-3: var(--av-bg-3);
+  --bg-overlay-4: var(--av-bg-4);
+  --bg-overlay-5: var(--av-bg-4);
+  --bg-overlay-6: var(--av-bg-0);
 
-  /* ── Modifier overlays ───────────────────────────────── */
-  --background-modifier-hover:    rgba(255, 255, 255, 0.04);
-  --background-modifier-active:   rgba(255, 255, 255, 0.07);
+  /* -- Modifier overlays --------------------------------- */
+  --background-modifier-hover: rgba(255, 255, 255, 0.04);
+  --background-modifier-active: rgba(255, 255, 255, 0.07);
   --background-modifier-selected: var(--av-accent-dim);
-  --background-modifier-accent:   rgba(255, 255, 255, 0.055);
+  --background-modifier-accent: rgba(255, 255, 255, 0.055);
 
-  /* ── Message highlights ──────────────────────────────── */
-  --background-mentioned:         transparent !important;
-  --background-mentioned-hover:   transparent !important;
-  --background-message-hover:     rgba(255, 255, 255, 0.018);
+  /* -- Message highlights -------------------------------- */
+  --background-mentioned: transparent !important;
+  --background-mentioned-hover: transparent !important;
+  --background-message-hover: rgba(255, 255, 255, 0.018);
 
-  /* ── Text ────────────────────────────────────────────── */
-  --text-normal:    var(--av-text-1);
-  --text-muted:     var(--av-text-2);
-  --text-link:      var(--av-accent);
-  --text-positive:  #4eca82;
-  --text-warning:   #e5a438;
-  --text-danger:    #e05a5a;
-  --text-brand:     var(--av-accent);
-  --text-default:   var(--av-text-1);
+  /* -- Text ---------------------------------------------- */
+  --text-normal: var(--av-text-1);
+  --text-muted: var(--av-text-2);
+  --text-link: var(--av-accent);
+  --text-positive: #4eca82;
+  --text-warning: #e5a438;
+  --text-danger: #e05a5a;
+  --text-brand: var(--av-accent);
+  --text-default: var(--av-text-1);
   --text-secondary: var(--av-text-2);
 
-  /* ── Headers ─────────────────────────────────────────── */
-  --header-primary:   var(--av-text-1);   /* same as --text-normal */
-  --header-secondary: var(--av-text-2);  /* same tone as interactive/channels */
-  --header-muted:     var(--av-text-2);
+  /* -- Headers ------------------------------------------- */
+  --header-primary: var(--av-text-1);
+  /* same as --text-normal */
+  --header-secondary: var(--av-text-2);
+  /* same tone as interactive/channels */
+  --header-muted: var(--av-text-2);
 
-  /* ── Interactive states ──────────────────────────────── */
-  --interactive-normal:  #8a9bb5;
-  --interactive-hover:   var(--av-text-1);
-  --interactive-active:  var(--av-text-1);
-  --interactive-muted:   var(--av-text-3);
-  --channels-default:    #8a9bb5;
+  /* -- Interactive states -------------------------------- */
+  --interactive-normal: #8a9bb5;
+  --interactive-hover: var(--av-text-1);
+  --interactive-active: var(--av-text-1);
+  --interactive-muted: var(--av-text-3);
+  --channels-default: #8a9bb5;
 
-  /* ── Brand / accent ──────────────────────────────────── */
-  --brand-experiment:       var(--av-accent);
-  --brand-experiment-330:   var(--av-accent-hi);
-  --brand-experiment-360:   var(--av-accent-hi);
-  --brand-experiment-400:   var(--av-accent);
-  --brand-experiment-430:   var(--av-accent);
-  --brand-experiment-460:   var(--av-accent-lo);
-  --brand-experiment-530:   #2e8ba8;
-  --brand-experiment-560:   #227490;
-  --brand-experiment-600:   #175d78;
-  --brand-500:              var(--av-accent);
-  --brand-360:              var(--av-accent-hi);
-  --background-brand:       var(--av-accent);
+  /* -- Brand / accent ------------------------------------ */
+  --brand-experiment: var(--av-accent);
+  --brand-experiment-330: var(--av-accent-hi);
+  --brand-experiment-360: var(--av-accent-hi);
+  --brand-experiment-400: var(--av-accent);
+  --brand-experiment-430: var(--av-accent);
+  --brand-experiment-460: var(--av-accent-lo);
+  --brand-experiment-530: #2e8ba8;
+  --brand-experiment-560: #227490;
+  --brand-experiment-600: #175d78;
+  --brand-500: var(--av-accent);
+  --brand-360: var(--av-accent-hi);
+  --background-brand: var(--av-accent);
   --control-brand-foreground: var(--av-accent);
-  --text-brand:             var(--av-accent);
-  --info-help-foreground:   var(--av-accent);
+  --text-brand: var(--av-accent);
+  --info-help-foreground: var(--av-accent);
 
-  /* ── Inputs ──────────────────────────────────────────── */
+  /* -- Inputs -------------------------------------------- */
   --channeltextarea-background: var(--av-bg-3);
-  --input-background:           var(--av-bg-3);
-  --deprecated-card-bg:         var(--av-bg-2);
-  --deprecated-store-bg:        var(--av-bg-2);
-  --input-border-default:       var(--av-border);
-  --input-border-hover:         rgba(255, 255, 255, 0.09);
-  --input-border-active:        var(--av-border-accent);
+  --input-background: var(--av-bg-3);
+  --deprecated-card-bg: var(--av-bg-2);
+  --deprecated-store-bg: var(--av-bg-2);
+  --input-border-default: var(--av-border);
+  --input-border-hover: rgba(255, 255, 255, 0.09);
+  --input-border-active: var(--av-border-accent);
 
-  /* ── Borders ─────────────────────────────────────────── */
-  --border-faint:  rgba(255, 255, 255, 0.04);
+  /* -- Borders ------------------------------------------- */
+  --border-faint: rgba(255, 255, 255, 0.04);
   --border-subtle: var(--av-border);
   --border-normal: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.14);
   --border-active: var(--av-border-accent);
 
-  /* ── Mentions ────────────────────────────────────────── */
-  --mention-foreground:  var(--av-accent);
-  --mention-background:  var(--av-accent-dim);
+  /* -- Mentions ------------------------------------------ */
+  --mention-foreground: var(--av-accent);
+  --mention-background: var(--av-accent-dim);
 
-  /* ── Spoilers ────────────────────────────────────────── */
-  --spoiler-hidden-background:       var(--av-bg-3);
+  /* -- Spoilers ------------------------------------------ */
+  --spoiler-hidden-background: var(--av-bg-3);
   --spoiler-hidden-background-hover: var(--av-bg-4);
 
-  /* ── Scrollbars ──────────────────────────────────────── */
-  --scrollbar-thin-track:                      transparent;
-  --scrollbar-thin-thumb:                      rgba(78, 184, 214, 0.18);
-  --scrollbar-auto-track:                      transparent;
-  --scrollbar-auto-thumb:                      rgba(78, 184, 214, 0.18);
-  --scrollbar-auto-scrollbar-color-track:      transparent;
-  --scrollbar-auto-scrollbar-color-thumb:      rgba(78, 184, 214, 0.18);
+  /* -- Scrollbars ---------------------------------------- */
+  --scrollbar-thin-track: transparent;
+  --scrollbar-thin-thumb: rgba(78, 184, 214, 0.18);
+  --scrollbar-auto-track: transparent;
+  --scrollbar-auto-thumb: rgba(78, 184, 214, 0.18);
+  --scrollbar-auto-scrollbar-color-track: transparent;
+  --scrollbar-auto-scrollbar-color-thumb: rgba(78, 184, 214, 0.18);
 
-  /* ── Elevation (shadows) ─────────────────────────────── */
-  --elevation-low:    0 2px 8px  rgba(0, 0, 0, 0.35);
+  /* -- Elevation (shadows) ------------------------------- */
+  --elevation-low: 0 2px 8px rgba(0, 0, 0, 0.35);
   --elevation-medium: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --elevation-high:   0 16px 48px rgba(0, 0, 0, 0.55);
+  --elevation-high: 0 16px 48px rgba(0, 0, 0, 0.55);
 
-  /* ── Focus ring ──────────────────────────────────────── */
+  /* -- Focus ring ---------------------------------------- */
   --focus-primary: var(--av-accent);
+  --focus-secondary: var(--av-accent);
 
-  /* ── Badges ──────────────────────────────────────────── */
+  /* -- Badges -------------------------------------------- */
   --badge-background-brand: var(--av-accent);
 
-  /* ── Checkboxes / radios ─────────────────────────────── */
+  /* -- Checkboxes / radios ------------------------------- */
   --checkbox-background-selected-default: var(--av-accent);
-  --checkbox-background-selected-hover:   var(--av-accent-hi);
-  --radio-background-selected-default:    var(--av-accent);
+  --checkbox-background-selected-hover: var(--av-accent-hi);
+  --radio-background-selected-default: var(--av-accent);
 
-  /* ── Progress bars ───────────────────────────────────── */
+  /* -- Progress bars ------------------------------------- */
   --progressbar-indicator-background: var(--av-accent);
 
-  /* ── Badge/pill backgrounds (BOT, APP) ──────────────── */
+  /* -- Badge/pill backgrounds (BOT, APP) ---------------- */
   --bg-brand: transparent !important;
   --profile-body-background-color: var(--av-bg-4);
   --badge-brand-bg: transparent !important;
@@ -198,25 +215,32 @@
   --bot-tag-background: transparent !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    SCROLLBARS (webkit)
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
-::-webkit-scrollbar-track  { background: transparent; }
-::-webkit-scrollbar-thumb  {
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
   background: rgba(78, 184, 214, 0.16);
   border-radius: 4px;
   transition: background var(--av-t);
 }
-::-webkit-scrollbar-thumb:hover { background: rgba(78, 184, 214, 0.32); }
 
-/* ─────────────────────────────────────────────────────────
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(78, 184, 214, 0.32);
+}
+
+/* ---------------------------------------------------------
    SERVER LIST (guilds)
-───────────────────────────────────────────────────────── */
-/* Server list background — total override for unified canvas */
+--------------------------------------------------------- */
+/* Server list background - total override for unified canvas */
 [class*="guilds_"],
 nav[class*="guilds"],
 [class*="guilds_"] [class*="scroller_"],
@@ -237,12 +261,13 @@ nav[class*="guilds"] [class*="scroller_"],
   background-color: var(--av-accent-dim) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    CHANNEL SIDEBAR
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 /* Sidebar base */
 [class*="sidebar_"] {
   background-color: var(--av-bg-2) !important;
+  border-right: 1px solid var(--av-border) !important;
 }
 
 /* Server name header */
@@ -252,31 +277,33 @@ nav[class*="guilds"] [class*="scroller_"],
   box-shadow: none !important;
 }
 
-/* Selected channel & hover states — completely transparent background (standalone selectors to prevent compiler discard) */
-[class*="selected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="selected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="selected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="modeSelected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="modeSelected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="modeSelected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="modeSelected_"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="selected_"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="link_"][class*="channel"]:hover { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="link_"][class*="channel"]:active { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="link_"][class*="channel"][class*="modeSelected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="link_"][class*="channel"][class*="selected_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="wrapper_"][class*="modeSelected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="wrapper_"][class*="selected_"] [class*="link_"] { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="wrapper_"][class*="modeSelected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="wrapper_"][class*="selected_"] a { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="sidebar_"] [class*="selected_"] * { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
-[class*="sidebar_"] [class*="modeSelected_"] * { background-color: transparent !important; background: transparent !important; box-shadow: none !important; border: none !important; }
+/* Selected channel & hover states - completely transparent background */
+[class*="modeSelected_"],
+[class*="modeSelected_"]:hover,
+[class*="link_"][class*="channel"]:hover,
+[class*="link_"][class*="channel"]:active,
+[class*="link_"][class*="channel"][class*="modeSelected_"] {
+  background-color: rgba(255, 255, 255, 0.028) !important;
+  background: rgba(255, 255, 255, 0.028) !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: var(--av-radius-sm) !important;
+}
+
+[class*="modeSelected_"],
+[class*="modeSelected_"]:hover,
+[class*="link_"][class*="channel"][class*="modeSelected_"] {
+  background-color: var(--av-accent-dim) !important;
+  background: var(--av-accent-dim) !important;
+  box-shadow: inset 2px 0 0 var(--av-accent) !important;
+}
 
 /* Selected channel text color (cyan) */
-[class*="modeSelected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
-[class*="selected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
-[class*="link_"][class*="channel"][class*="modeSelected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
-[class*="link_"][class*="channel"][class*="selected_"] [class*="name_"] { color: var(--av-accent) !important; font-weight: 600 !important; }
+[class*="modeSelected_"] [class*="name_"],
+[class*="link_"][class*="channel"][class*="modeSelected_"] [class*="name_"] {
+  color: var(--av-accent) !important;
+  font-weight: 600 !important;
+}
 
 /* Channel hover text color (white) */
 [class*="link_"][class*="channel"]:hover [class*="name_"] {
@@ -293,7 +320,12 @@ nav[class*="guilds"] [class*="scroller_"],
   text-transform: uppercase !important;
 }
 
-/* ── Scoped variable override: sidebar category headers ─── */
+[class*="containerDefault_"][class*="category_"],
+[class*="containerDefault_"] [class*="children_"] {
+  margin-top: 6px !important;
+}
+
+/* -- Scoped variable override: sidebar category headers --- */
 [class*="sidebar_"] {
   --header-primary: var(--av-text-2);
   --interactive-muted: var(--av-text-3);
@@ -301,7 +333,7 @@ nav[class*="guilds"] [class*="scroller_"],
   --header-secondary: var(--av-text-2);
 }
 
-/* ── Scoped variable override: member list headers ─── */
+/* -- Scoped variable override: member list headers --- */
 [class*="members_"],
 [class*="membersWrap_"],
 [class*="membersGroup"] {
@@ -310,7 +342,7 @@ nav[class*="guilds"] [class*="scroller_"],
   --channels-default: var(--av-text-2);
 }
 
-/* Member list — role/group headers — nuclear selector list */
+/* Member list - role/group headers - nuclear selector list */
 [class*="membersGroup"],
 [class*="groupHeader"],
 [class*="roleHeader"],
@@ -331,17 +363,27 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="name_"][class*="channel"] {
   font-size: 14px !important;
   font-weight: 400 !important;
-  letter-spacing: 0.005em !important;
+  letter-spacing: 0 !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    CHAT AREA
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 /* Channel header */
 [class*="chat_"] [class*="header_"] {
-  background-color: var(--av-bg-1) !important;
+  background-color: rgba(14, 18, 24, 0.96) !important;
   border-bottom: 1px solid var(--av-border) !important;
-  box-shadow: none !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.018) !important;
+}
+
+[class*="chat_"] [class*="toolbar_"] [class*="iconWrapper_"],
+[class*="chat_"] [class*="toolbar_"] [class*="button_"] {
+  color: var(--av-text-3) !important;
+}
+
+[class*="chat_"] [class*="toolbar_"] [class*="iconWrapper_"]:hover,
+[class*="chat_"] [class*="toolbar_"] [class*="button_"]:hover {
+  color: var(--av-text-1) !important;
 }
 
 /* Message list, chat content, and voice call canvas uniformity */
@@ -354,13 +396,14 @@ nav[class*="guilds"] [class*="scroller_"],
   background-color: var(--av-bg-1) !important;
 }
 
-/* Individual messages — flat, completely transparent background by default */
+/* Individual messages - flat, completely transparent background by default */
 [class*="message_"] {
   background-color: transparent !important;
   background: transparent !important;
   border-radius: var(--av-radius-sm) !important;
   transition: background-color var(--av-t) !important;
 }
+
 [class*="message_"]:hover {
   background-color: var(--background-message-hover) !important;
 }
@@ -372,7 +415,7 @@ nav[class*="guilds"] [class*="scroller_"],
   font-weight: 400 !important;
 }
 
-/* Username / author — NUCLEAR: override ALL inline role colors and variables */
+/* Username / author - NUCLEAR: override ALL inline role colors and variables */
 [class*="username"],
 [class*="author"],
 [class*="headerText"] [class*="name"],
@@ -382,8 +425,7 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="member"] [class*="username"],
 [class*="memberInner"] [class*="name"],
 [class*="message"] [class*="username"],
-[class*="headerText"] span,
-[style*="--role-color"] {
+[class*="headerText"] span {
   color: var(--av-text-1) !important;
   --role-color: var(--av-text-1) !important;
   --username-color: var(--av-text-1) !important;
@@ -391,16 +433,13 @@ nav[class*="guilds"] [class*="scroller_"],
   font-weight: 500 !important;
 }
 
-/* Kill ALL inline style colors inside messages and member list */
-[class*="message"] [style*="color"],
-[class*="header"] [class*="username"][style],
-[class*="member"] [style*="color"],
-[class*="membersWrap"] [style*="color"],
-[class*="username"][style*="color"],
-[class*="name"][style*="color"],
-[class*="nameTag"][style*="color"],
-[class*="headerText"] span[style],
-[class*="membersGroup"] [style*="color"] {
+/* Only neutralize role/user inline colors; leave embeds, markdown and status colors intact */
+[class*="message"] [class*="username"][style*="color"],
+[class*="message"] [class*="headerText"] span[style*="color"],
+[class*="member"] [class*="name_"][style*="color"],
+[class*="member"] [class*="username"][style*="color"],
+[class*="membersWrap"] [class*="name_"][style*="color"],
+[class*="membersWrap"] [class*="username"][style*="color"] {
   color: var(--av-text-1) !important;
   --role-color: var(--av-text-1) !important;
   --username-color: var(--av-text-1) !important;
@@ -429,6 +468,7 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="divider_"] {
   border-color: var(--av-border) !important;
 }
+
 [class*="divider_"] [class*="content_"] {
   background-color: var(--av-bg-1) !important;
   color: var(--av-text-3) !important;
@@ -437,73 +477,116 @@ nav[class*="guilds"] [class*="scroller_"],
   letter-spacing: 0.05em !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    MESSAGE INPUT
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 [class*="channelTextArea_"] {
-  background-color: var(--av-bg-3) !important;
+  background-color: rgba(21, 28, 38, 0.92) !important;
   border-radius: var(--av-radius-lg) !important;
   border: 1px solid var(--av-border) !important;
-  transition: border-color var(--av-t), box-shadow var(--av-t) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+  transition: background-color var(--av-t), border-color var(--av-t), box-shadow var(--av-t) !important;
   margin-bottom: 2px !important;
 }
+
 [class*="channelTextArea_"]:focus-within {
   border-color: var(--av-border-accent) !important;
-  box-shadow: 0 0 0 1px var(--av-border-accent),
-              inset 0 0 20px rgba(78, 184, 214, 0.03) !important;
+  background-color: var(--av-bg-3) !important;
+  box-shadow:
+    0 0 0 1px rgba(78, 184, 214, 0.2),
+    0 8px 28px rgba(0, 0, 0, 0.18),
+    inset 0 0 20px rgba(78, 184, 214, 0.025) !important;
 }
+
 [class*="textArea_"] {
   background: transparent !important;
 }
 
 /* Input toolbar icons */
 [class*="buttons_"][class*="channelTextArea"] [class*="button_"] {
-  color: var(--av-text-2) !important;
+  color: var(--av-text-3) !important;
   transition: color var(--av-t) !important;
 }
+
 [class*="buttons_"][class*="channelTextArea"] [class*="button_"]:hover {
   color: var(--av-accent) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    BOTTOM USER PANEL
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 [class*="panels_"],
-[class*="panels_"] > div,
+[class*="panels_"]>div,
 [class*="panel_"][class*="account"] {
   background-color: var(--av-bg-0) !important;
   background: var(--av-bg-0) !important;
   border-top: 1px solid var(--av-border) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
-   MEMBER LIST (right panel) — transparent members & activity cards
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   MEMBER LIST (right panel) - transparent members & activity cards
+--------------------------------------------------------- */
 [class*="members_"][class*="container"],
 [class*="membersWrap_"] {
   background-color: var(--av-bg-2) !important;
   border-left: 1px solid var(--av-border) !important;
 }
 
-/* Force all member cards, hovered states, rich activities, and Active Now cards to be transparent (standalone selectors) */
-[class*="members_"] [class*="member_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="layout_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="memberInner_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="member_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="layout_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="memberInner_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="content_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="content_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="activity_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="card_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="activity_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="card_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="container_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="container_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="activityItem_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="membersWrap_"] [class*="interactiveCard_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="activityItem_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
-[class*="members_"] [class*="interactiveCard_"] { background-color: transparent !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+/* Force all member cards, hovered states, and rich activities to be transparent */
+[class*="members_"] [class*="member_"],
+[class*="members_"] [class*="layout_"],
+[class*="members_"] [class*="memberInner_"],
+[class*="membersWrap_"] [class*="member_"],
+[class*="membersWrap_"] [class*="layout_"],
+[class*="membersWrap_"] [class*="memberInner_"],
+[class*="members_"] [class*="content_"],
+[class*="membersWrap_"] [class*="content_"],
+[class*="members_"] [class*="activity_"],
+[class*="members_"] [class*="card_"],
+[class*="membersWrap_"] [class*="activity_"],
+[class*="membersWrap_"] [class*="card_"],
+[class*="members_"] [class*="container_"],
+[class*="membersWrap_"] [class*="container_"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[class*="members_"] [class*="member_"],
+[class*="membersWrap_"] [class*="member_"] {
+  margin: 1px 8px !important;
+}
+
+[class*="members_"] [class*="layout_"],
+[class*="membersWrap_"] [class*="layout_"] {
+  border-radius: var(--av-radius-sm) !important;
+  transition: background-color var(--av-t), color var(--av-t) !important;
+}
+
+[class*="members_"] [class*="member_"]:hover [class*="layout_"],
+[class*="membersWrap_"] [class*="member_"]:hover [class*="layout_"],
+[class*="members_"] [class*="member_"][class*="selected_"] [class*="layout_"],
+[class*="membersWrap_"] [class*="member_"][class*="selected_"] [class*="layout_"] {
+  background-color: rgba(255, 255, 255, 0.035) !important;
+}
+
+[class*="members_"] [class*="activity_"],
+[class*="membersWrap_"] [class*="activity_"],
+[class*="members_"] [class*="subText_"],
+[class*="membersWrap_"] [class*="subText_"] {
+  color: var(--av-text-3) !important;
+  font-size: 12px !important;
+  opacity: 0.86 !important;
+}
+
+[class*="members_"] [class*="member_"] [class*="name_"],
+[class*="membersWrap_"] [class*="member_"] [class*="name_"],
+[class*="members_"] [class*="member_"] [class*="username"],
+[class*="membersWrap_"] [class*="member_"] [class*="username"] {
+  color: var(--av-text-2) !important;
+  font-weight: 500 !important;
+}
 
 /* Hover and selection text color transition for members */
 [class*="member_"]:hover [class*="name_"],
@@ -513,9 +596,9 @@ nav[class*="guilds"] [class*="scroller_"],
   color: var(--av-accent) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
-   BOT / APP / CUSTOM BADGES — total nuke
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   BOT / APP / CUSTOM BADGES - total nuke
+--------------------------------------------------------- */
 /* Target every possible badge and tag variant for total transparency */
 [class*="botTag_"],
 [class*="botTagRegular_"],
@@ -523,7 +606,6 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="botTagInvert_"],
 [class*="botTagContainer_"],
 [class*="appTag_"],
-[class*="tag_"]:not([class*="numberBadge_"]),
 [class*="tagText_"],
 [class*="botText_"],
 [class*="tagText"],
@@ -532,10 +614,6 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="appTag"],
 [class*="appTag"] *,
 [class*="pill_"][class*="bot_"],
-[class*="profileBadges_"] [class*="badge_"],
-[class*="badgeList_"] [class*="badge_"],
-[class*="badgeContainer_"],
-[class*="badge_"]:not([class*="numberBadge_"]),
 [class*="rem_"] [class*="botTag_"],
 [class*="rem_"] [class*="botTag_"] * {
   background-color: transparent !important;
@@ -549,22 +627,20 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="botTag"] svg,
 [class*="botTag"] svg path,
 [class*="appTag"] svg,
-[class*="appTag"] svg path,
-[class*="badge_"] svg,
-[class*="badge_"] svg path {
+[class*="appTag"] svg path {
   color: var(--av-accent) !important;
   fill: var(--av-accent) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
-   VOICE PANEL — bottom control area
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   VOICE PANEL - bottom control area
+--------------------------------------------------------- */
 /* "Voz conectada" panel background */
 [class*="connection_"],
 [class*="voicePanel_"],
 [class*="rtcConnectionStatus_"],
-[class*="connection_"] > div,
-[class*="voicePanel_"] > div {
+[class*="connection_"]>div,
+[class*="voicePanel_"]>div {
   background-color: var(--av-bg-0) !important;
   background: var(--av-bg-0) !important;
   border-top: 1px solid var(--av-border) !important;
@@ -587,6 +663,7 @@ nav[class*="guilds"] [class*="scroller_"],
   border-radius: var(--av-radius-sm) !important;
   transition: background-color var(--av-t), color var(--av-t) !important;
 }
+
 [class*="connection_"] [class*="button_"]:hover,
 [class*="voicePanel_"] [class*="button_"]:hover,
 [class*="actionButtons_"] [class*="button_"]:hover {
@@ -601,6 +678,7 @@ nav[class*="guilds"] [class*="scroller_"],
   background-color: rgba(224, 90, 90, 0.15) !important;
   color: #e05a5a !important;
 }
+
 [class*="button_"][class*="disconnect_"]:hover,
 [class*="hangup_"]:hover,
 [class*="endCall_"]:hover {
@@ -613,12 +691,13 @@ nav[class*="guilds"] [class*="scroller_"],
 [class*="noiseCancellation_"] {
   color: var(--av-text-2) !important;
 }
+
 [class*="krisp_"]:hover,
 [class*="noiseCancellation_"]:hover {
   color: var(--av-accent) !important;
 }
 
-/* Bottom user panel mic/deafen/settings buttons — force transparent background by default */
+/* Bottom user panel mic/deafen/settings buttons - force transparent background by default */
 [class*="panels_"] [class*="button_"],
 [class*="panels_"] button,
 [class*="panels_"] [class*="actionButtons_"] button {
@@ -657,9 +736,9 @@ nav[class*="guilds"] [class*="scroller_"],
   fill: currentColor !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    BUTTONS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 /* Primary / brand buttons */
 [class*="colorBrand_"],
 [class*="lookFilled_"][class*="colorBrand_"] {
@@ -669,6 +748,7 @@ nav[class*="guilds"] [class*="scroller_"],
   border-radius: var(--av-radius) !important;
   transition: background-color var(--av-t), transform var(--av-t), box-shadow var(--av-t) !important;
 }
+
 [class*="colorBrand_"]:hover,
 [class*="lookFilled_"][class*="colorBrand_"]:hover {
   background-color: var(--av-accent-hi) !important;
@@ -682,14 +762,15 @@ nav[class*="guilds"] [class*="scroller_"],
   border-radius: var(--av-radius) !important;
   transition: border-color var(--av-t), background-color var(--av-t) !important;
 }
+
 [class*="lookOutlined_"]:hover {
   border-color: var(--av-border-accent) !important;
   background-color: var(--av-accent-dim) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
-   MODALS — Glassmorphism
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   MODALS - Glassmorphism
+--------------------------------------------------------- */
 [class*="root_"][class*="modal"],
 [class*="modal"][class*="root_"] {
   background: var(--av-bg-glass) !important;
@@ -713,9 +794,9 @@ nav[class*="guilds"] [class*="scroller_"],
   border-radius: 0 0 var(--av-radius-lg) var(--av-radius-lg) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    CONTEXT MENUS & POPOUTS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 [class*="menu_"],
 [class*="popout_"]:not([class*="layer_"]) {
   background-color: var(--av-bg-4) !important;
@@ -731,14 +812,20 @@ nav[class*="guilds"] [class*="scroller_"],
   font-size: 14px !important;
 }
 
+[class*="item_"][class*="menu"]:hover,
+[class*="item_"][class*="menu"][class*="focused_"] {
+  background-color: var(--av-accent-dim) !important;
+  color: var(--av-text-1) !important;
+}
+
 /* Danger menu item */
 [class*="colorDanger_"][class*="item_"] {
   color: #e05a5a !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    TOOLTIPS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 [class*="tooltip_"] {
   background-color: var(--av-bg-4) !important;
   border: 1px solid var(--av-border) !important;
@@ -749,9 +836,14 @@ nav[class*="guilds"] [class*="scroller_"],
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+[class*="tooltipPointer_"],
+[class*="tooltip_"] [class*="pointer_"] {
+  border-top-color: var(--av-border) !important;
+}
+
+/* ---------------------------------------------------------
    BADGES & MENTIONS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 [class*="numberBadge_"] {
   background-color: var(--av-accent) !important;
   color: #0b0d10 !important;
@@ -760,33 +852,37 @@ nav[class*="guilds"] [class*="scroller_"],
 }
 
 /* @mention highlight inside the text block */
-[class*="mention"] {
+[class*="markup_"] [class*="mention"],
+[class*="messageContent_"] [class*="mention"] {
   background-color: var(--av-accent-dim) !important;
   color: var(--av-accent) !important;
   border-radius: 3px !important;
   font-weight: 500 !important;
   transition: background-color var(--av-t) !important;
 }
-[class*="mention"]:hover {
+
+[class*="markup_"] [class*="mention"]:hover,
+[class*="messageContent_"] [class*="mention"]:hover {
   background-color: rgba(78, 184, 214, 0.22) !important;
 }
 
-/* Message block mention highlight (when you get pinged) — elegant soft cyan background & vertical bar */
+/* Message block mention highlight (when you get pinged) - elegant soft cyan background & vertical bar */
 [class*="message_"][class*="mentioned_"],
 [class*="message_"][class*="mentioned_"]:hover,
 [class*="mentioned_"] {
   background-color: var(--av-accent-dim) !important;
   background: var(--av-accent-dim) !important;
 }
+
 [class*="message_"][class*="mentioned_"]::before {
   background-color: var(--av-accent) !important;
   content: "" !important;
   width: 2px !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    INLINE CODE & CODE BLOCKS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 /* Inline code */
 code:not([class]) {
   background-color: var(--av-bg-3) !important;
@@ -807,7 +903,7 @@ code:not([class]) {
 }
 
 /* Code block language label */
-[class*="scrollBarSpacer_"] + [class*="container_"],
+[class*="scrollBarSpacer_"]+[class*="container_"],
 [class*="lang_"] {
   background: transparent !important;
   color: var(--av-text-3) !important;
@@ -816,9 +912,9 @@ code:not([class]) {
   letter-spacing: 0.05em !important;
 }
 
-/* ─────────────────────────────────────────────────────────
-   TYPOGRAPHY — Message content
-───────────────────────────────────────────────────────── */
+/* ---------------------------------------------------------
+   TYPOGRAPHY - Message content
+--------------------------------------------------------- */
 /* Main message text */
 [class*="markup_"] {
   font-size: 14px !important;
@@ -832,7 +928,7 @@ code:not([class]) {
 [class*="markup_"] h2,
 [class*="markup_"] h3 {
   font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: 0 !important;
   color: var(--av-text-1) !important;
   margin-bottom: 4px !important;
 }
@@ -856,13 +952,13 @@ code:not([class]) {
 [class*="title_"][class*="header_"] {
   font-size: 15px !important;
   font-weight: 600 !important;
-  letter-spacing: -0.01em !important;
+  letter-spacing: 0 !important;
   color: var(--av-text-1) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    MICRO-ANIMATIONS
-───────────────────────────────────────────────────────── */
+--------------------------------------------------------- */
 /* Toolbar / icon buttons */
 [class*="iconWrapper_"],
 [class*="button_"][class*="icon"],
@@ -879,13 +975,14 @@ code:not([class]) {
 [class*="avatar_"]:not([class*="mask"]) {
   transition: transform var(--av-t) !important;
 }
+
 [class*="avatar_"]:not([class*="mask"]):hover {
   transform: scale(1.06) !important;
 }
 
 /* Selected / active channel animation */
 [class*="modeSelected_"] {
-  transition: background-color var(--av-t) !important;
+  transition: background-color var(--av-t), box-shadow var(--av-t) !important;
 }
 
 /* Switch toggles */
@@ -893,11 +990,15 @@ code:not([class]) {
   transition: background-color var(--av-t) !important;
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ---------------------------------------------------------
    MISC POLISH
-───────────────────────────────────────────────────────── */
-/* Remove default card elevations — completely transparent cards */
-[class*="card_"] {
+--------------------------------------------------------- */
+/* Remove default card elevations - completely transparent cards */
+[class*="chat_"] [class*="card_"],
+[class*="members_"] [class*="card_"],
+[class*="membersWrap_"] [class*="card_"],
+[class*="popout_"] [class*="card_"],
+[class*="modal"] [class*="card_"] {
   background-color: transparent !important;
   background: transparent !important;
   border: 1px solid var(--av-border) !important;
@@ -907,9 +1008,16 @@ code:not([class]) {
 
 /* Search bar */
 [class*="searchBar_"] {
-  background-color: var(--av-bg-0) !important;
+  background-color: rgba(11, 14, 19, 0.82) !important;
   border-radius: var(--av-radius-sm) !important;
   border: 1px solid var(--av-border) !important;
+  transition: border-color var(--av-t), background-color var(--av-t), box-shadow var(--av-t) !important;
+}
+
+[class*="searchBar_"]:focus-within {
+  background-color: var(--av-bg-0) !important;
+  border-color: var(--av-border-accent) !important;
+  box-shadow: 0 0 0 2px rgba(78, 184, 214, 0.07) !important;
 }
 
 /* Unread bar */
@@ -927,19 +1035,24 @@ code:not([class]) {
   border-radius: 100px !important;
   transition: background-color var(--av-t), border-color var(--av-t) !important;
 }
+
 [class*="reaction_"]:hover,
 [class*="reaction_"][class*="reacted_"] {
   background-color: var(--av-accent-dim) !important;
   border-color: var(--av-border-accent) !important;
 }
+
 [class*="reaction_"][class*="reacted_"] [class*="count_"] {
   color: var(--av-accent) !important;
 }
 
 /* Embed left accent bar */
 [class*="embedFull_"] {
-  border-left-color: var(--av-accent) !important;
-  background-color: var(--av-bg-2) !important;
+  border-left-color: rgba(78, 184, 214, 0.62) !important;
+  background-color: rgba(17, 23, 32, 0.72) !important;
+  border-top: 1px solid var(--av-border) !important;
+  border-right: 1px solid var(--av-border) !important;
+  border-bottom: 1px solid var(--av-border) !important;
   border-radius: 0 var(--av-radius-sm) var(--av-radius-sm) 0 !important;
 }
 
@@ -947,4 +1060,277 @@ code:not([class]) {
 [class*="spoilerText_"][class*="hidden_"] {
   background-color: var(--av-bg-3) !important;
   border-radius: 3px !important;
+}
+
+/* Final visual fixes: neutral sidebar labels, unified bottom panels, clearer UI icons */
+[class*="sidebar_"] {
+  --header-primary: #d7dde5;
+  --header-secondary: #9aa3ae;
+  --interactive-normal: #9aa3ae;
+  --interactive-hover: #d7dde5;
+  --interactive-muted: #727b86;
+  --channels-default: #9aa3ae;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] [class*="categoryName_"],
+[class*="sidebar_"] [class*="category_"] [class*="name_"],
+[class*="sidebar_"] [class*="sectionName_"],
+[class*="sidebar_"] [class*="subtitle_"],
+[class*="sidebar_"] [class*="children_"] [class*="name_"],
+[class*="sidebar_"] [class*="voiceChannelsButton_"],
+[class*="sidebar_"] [class*="containerDefault_"] [class*="header_"],
+[class*="sidebar_"] [class*="containerDefault_"] [class*="title_"] {
+  color: #9aa3ae !important;
+}
+
+[class*="sidebar_"] [class*="icon_"],
+[class*="sidebar_"] svg,
+[class*="sidebar_"] path {
+  color: #87919d !important;
+  fill: currentColor !important;
+}
+
+[class*="sidebar_"] [class*="modeSelected_"] [class*="name_"],
+[class*="sidebar_"] [class*="modeSelected_"] [class*="icon_"],
+[class*="sidebar_"] [class*="link_"][class*="channel"]:hover [class*="name_"],
+[class*="sidebar_"] [class*="link_"][class*="channel"]:hover [class*="icon_"] {
+  color: var(--av-text-1) !important;
+}
+
+[class*="sidebar_"] [class*="link_"][class*="channel"]:hover svg,
+[class*="sidebar_"] [class*="link_"][class*="channel"]:hover path,
+[class*="sidebar_"] [class*="modeSelected_"] svg,
+[class*="sidebar_"] [class*="modeSelected_"] path {
+  color: var(--av-text-1) !important;
+  fill: currentColor !important;
+}
+
+[class*="sidebar_"] [class*="modeSelected_"] [class*="name_"] {
+  color: var(--av-accent) !important;
+}
+
+[class*="panels_"] {
+  background-color: var(--av-bg-0) !important;
+  background: var(--av-bg-0) !important;
+  border-top: 1px solid var(--av-border) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+[class*="panels_"] > div,
+[class*="panels_"] [class*="container_"],
+[class*="panels_"] [class*="connection_"],
+[class*="panels_"] [class*="voicePanel_"],
+[class*="panels_"] [class*="rtcConnectionStatus_"],
+[class*="panels_"] [class*="connection_"] > div,
+[class*="panels_"] [class*="voicePanel_"] > div {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+[class*="panels_"]::before,
+[class*="panels_"]::after {
+  display: none !important;
+}
+
+[class*="panels_"] svg,
+[class*="panels_"] path,
+[class*="toolbar_"] svg,
+[class*="toolbar_"] path,
+[class*="actionButtons_"] svg,
+[class*="actionButtons_"] path,
+[class*="callContainer_"] button svg,
+[class*="callContainer_"] button path,
+[class*="root_"][class*="callContainer"] button svg,
+[class*="root_"][class*="callContainer"] button path {
+  color: #d7dde5 !important;
+  fill: currentColor !important;
+  opacity: 1 !important;
+}
+
+[class*="toolbar_"] [class*="iconWrapper_"],
+[class*="toolbar_"] [class*="button_"],
+[class*="actionButtons_"] [class*="button_"],
+[class*="callContainer_"] button {
+  color: #d7dde5 !important;
+}
+
+[class*="toolbar_"] [class*="iconWrapper_"]:hover,
+[class*="toolbar_"] [class*="button_"]:hover,
+[class*="actionButtons_"] [class*="button_"]:hover,
+[class*="callContainer_"] button:hover {
+  color: #ffffff !important;
+}
+
+/* Sidebar-wide neutral pass: DMs, server categories, voice/text sections */
+[class*="sidebar_"],
+[class*="privateChannels_"],
+[class*="scroller_"][class*="thin_"] {
+  --header-primary: #d7dde5 !important;
+  --header-secondary: #9aa3ae !important;
+  --interactive-normal: #9aa3ae !important;
+  --interactive-hover: #d7dde5 !important;
+  --interactive-active: #e1e6ed !important;
+  --interactive-muted: #727b86 !important;
+  --channels-default: #9aa3ae !important;
+  --channel-icon: #87919d !important;
+  --channel-text-area-placeholder: #727b86 !important;
+}
+
+[class*="sidebar_"] [class*="header_"],
+[class*="sidebar_"] [class*="container_"][class*="header"],
+[class*="sidebar_"] [class*="section_"],
+[class*="sidebar_"] [class*="category_"],
+[class*="sidebar_"] [class*="containerDefault_"],
+[class*="sidebar_"] [class*="mainContent_"],
+[class*="privateChannels_"] [class*="section_"],
+[class*="privateChannels_"] [class*="channel_"],
+[class*="privateChannels_"] [class*="layout_"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+[class*="sidebar_"] [class*="header_"][class*="container_"] {
+  background-color: var(--av-bg-2) !important;
+  border-bottom: 1px solid var(--av-border) !important;
+}
+
+[class*="sidebar_"] [class*="containerDefault_"] [class*="categoryName_"],
+[class*="sidebar_"] [class*="categoryName_"],
+[class*="sidebar_"] [class*="category_"] [class*="name_"],
+[class*="sidebar_"] [class*="sectionName_"],
+[class*="sidebar_"] [class*="membersGroup"],
+[class*="sidebar_"] [class*="listSectionHeader"],
+[class*="sidebar_"] [role="heading"],
+[class*="sidebar_"] h2,
+[class*="sidebar_"] h3,
+[class*="privateChannels_"] [class*="sectionTitle_"],
+[class*="privateChannels_"] [class*="privateChannelsHeaderContainer_"],
+[class*="privateChannels_"] [class*="headerText_"],
+[class*="privateChannels_"] [class*="title_"] {
+  color: #9aa3ae !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+[class*="sidebar_"] [class*="icon_"],
+[class*="sidebar_"] [class*="channelIcon_"],
+[class*="sidebar_"] [class*="link_"] svg,
+[class*="sidebar_"] [class*="link_"] path,
+[class*="privateChannels_"] svg,
+[class*="privateChannels_"] path {
+  color: #87919d !important;
+  fill: currentColor !important;
+  opacity: 1 !important;
+}
+
+[class*="sidebar_"] [class*="link_"]:hover [class*="icon_"],
+[class*="sidebar_"] [class*="link_"]:hover [class*="channelIcon_"],
+[class*="sidebar_"] [class*="link_"]:hover svg,
+[class*="sidebar_"] [class*="link_"]:hover path,
+[class*="privateChannels_"] [class*="channel_"]:hover svg,
+[class*="privateChannels_"] [class*="channel_"]:hover path {
+  color: #d7dde5 !important;
+  fill: currentColor !important;
+}
+
+[class*="sidebar_"] [class*="modeSelected_"],
+[class*="sidebar_"] [class*="modeSelected_"]:hover,
+[class*="sidebar_"] [class*="link_"][class*="modeSelected_"],
+[class*="sidebar_"] [class*="link_"][class*="modeSelected_"]:hover,
+[class*="privateChannels_"] [class*="selected_"],
+[class*="privateChannels_"] [class*="selected_"] [class*="layout_"],
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"],
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"] [class*="layout_"] {
+  background-color: rgba(78, 184, 214, 0.095) !important;
+  background: rgba(78, 184, 214, 0.095) !important;
+  background-image: none !important;
+  box-shadow: inset 2px 0 0 var(--av-accent) !important;
+}
+
+[class*="sidebar_"] [class*="modeSelected_"] [class*="name_"],
+[class*="sidebar_"] [class*="modeSelected_"] [class*="icon_"],
+[class*="sidebar_"] [class*="modeSelected_"] svg,
+[class*="sidebar_"] [class*="modeSelected_"] path,
+[class*="privateChannels_"] [class*="selected_"] [class*="name_"],
+[class*="privateChannels_"] [class*="selected_"] svg,
+[class*="privateChannels_"] [class*="selected_"] path {
+  color: var(--av-accent) !important;
+  fill: currentColor !important;
+}
+
+/* Home icon and single DM selection pass */
+[class*="guilds_"] [class*="tutorialContainer_"] svg,
+[class*="guilds_"] [class*="tutorialContainer_"] path,
+[class*="guilds_"] [class*="homeIcon_"],
+[class*="guilds_"] [class*="homeIcon_"] path,
+[class*="guilds_"] [class*="childWrapper_"] svg,
+[class*="guilds_"] [class*="childWrapper_"] path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+[class*="guilds_"] [class*="tutorialContainer_"] [class*="childWrapper_"] {
+  background-color: var(--av-accent) !important;
+}
+
+[class*="privateChannels_"] [class*="selected_"],
+[class*="privateChannels_"] [class*="selected_"]:hover,
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"],
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"]:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-left: 0 !important;
+  outline: 0 !important;
+}
+
+[class*="privateChannels_"] [class*="selected_"]::before,
+[class*="privateChannels_"] [class*="selected_"]::after,
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"]::before,
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"]::after {
+  display: none !important;
+}
+
+[class*="privateChannels_"] [class*="selected_"] [class*="layout_"],
+[class*="privateChannels_"] [class*="selected_"]:hover [class*="layout_"],
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"] [class*="layout_"],
+[class*="privateChannels_"] [class*="channel_"][class*="selected_"]:hover [class*="layout_"],
+[class*="privateChannels_"] [class*="layout_"][class*="selected_"],
+[class*="privateChannels_"] [class*="layout_"][class*="selected_"]:hover {
+  background-color: rgba(78, 184, 214, 0.095) !important;
+  background: rgba(78, 184, 214, 0.095) !important;
+  background-image: none !important;
+  box-shadow: inset 2px 0 0 var(--av-accent) !important;
+  border-left: 0 !important;
+  outline: 0 !important;
+  border-radius: var(--av-radius-sm) !important;
+}
+
+/* Keyboard focus */
+[role="button"]:focus-visible,
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--av-border-accent) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(78, 184, 214, 0.08) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
